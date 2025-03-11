@@ -23,9 +23,11 @@ fun main() {
            Menu 
            1. Registrar producto 
            2. Venta 
-           3. consultar
-           4. comprar con descuento 
-           5. consultar producto
+           3. Consultar
+           4. Comprar con descuento 
+           5. Comprar con Aumento
+           6. Registrar
+           6. salir
            
            
             """.trimIndent()
@@ -105,9 +107,25 @@ fun main() {
                     }
 
                 }
+                5 -> {
+                    if (producto.isEmpty())
+                    {
+                        println("No se ha encontrado ningun producto registrado!")
+                    } else
 
+                        print("Ingrese el codigo: ")
+                    val codigo = readln().toInt()
+                    // find sirve para buscar el codigo  en la lista producto (it.nombre) sirve para buscar que consida con el nombre ingresado por el usuario
+                    // it objeto en la lista veterinaria que es lo mismo it = { mascota -> mascota.nombre == nombre } pero it rd abreviado
+                    val produc = producto.find { it.codigo == codigo }
+                    if (produc != null) {
+                        produc.Descuento()
+                    } else {
+                        println("No se encontró producto con el codigo $codigo.")
                     }
-        }while (opc != 5)
+                }
+            }
+        }while (opc != 6)
     }
 
 
